@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/models/weight.dart';
 import 'package:bmi_calculator/utils/calculator.dart';
+import 'package:bmi_calculator/utils/helpers.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
@@ -41,7 +42,7 @@ class DetailPage extends StatelessWidget {
                       width: 172,
                       height: 172,
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: _getColors(result)),
+                          shape: BoxShape.circle, color: getColors(result)),
                       child: Center(
                           child: Text(
                         '$result',
@@ -67,7 +68,7 @@ class DetailPage extends StatelessWidget {
                             height: 24,
                           ),
                           Text(
-                            'Your BMI is $result, indicating your weight is in the ${_getBMIStatus(result)} category for adults of your height',
+                            'Your BMI is $result, indicating your weight is in the ${getBMIStatus(result)} category for adults of your height',
                             style: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.w300),
                           ),
@@ -102,29 +103,5 @@ class DetailPage extends StatelessWidget {
                 ],
               ))),
     ));
-  }
-}
-
-_getColors(double bmi) {
-  if (bmi < 18.5) {
-    return Color.fromARGB(255, 101, 179, 243);
-  } else if (bmi < 25) {
-    return Color.fromARGB(255, 50, 224, 35);
-  } else if (bmi < 40) {
-    return Colors.orange;
-  } else {
-    return Color.fromARGB(255, 216, 37, 24);
-  }
-}
-
-_getBMIStatus(double bmi) {
-  if (bmi < 18.5) {
-    return "Underweight";
-  } else if (bmi < 25) {
-    return "Normal";
-  } else if (bmi < 40) {
-    return "Overweight";
-  } else {
-    return "Obese";
   }
 }

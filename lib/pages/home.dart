@@ -169,18 +169,6 @@ class _HomePageState extends State<HomePage> {
                                       NormalWeight resultNormal =
                                           getNormalWeight(heightNumber);
 
-                                      // Navigator.push(context, MaterialPageRoute(
-                                      //   builder: (context) {
-                                      //     return DetailPage(
-                                      //       age: _age.text,
-                                      //       weight: _weight.text,
-                                      //       height: _height.text,
-                                      //       result: double.parse(result),
-                                      //       resultNormal: resultNormal,
-                                      //     );
-                                      //   },
-                                      // ));
-
                                       Navigator.of(context)
                                           .push(PageRouteBuilder(
                                         pageBuilder: (context, animation,
