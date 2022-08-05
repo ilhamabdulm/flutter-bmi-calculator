@@ -22,86 +22,88 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return (Scaffold(
       body: SafeArea(
-          child: Container(
-              padding: const EdgeInsets.all(32),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Container(
-                      margin: const EdgeInsets.only(bottom: 32),
-                      child: const Text(
-                        'Your BMI Score Result',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
+          child: SingleChildScrollView(
+        child: Container(
+            padding: const EdgeInsets.all(32),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 32),
+                    child: const Text(
+                      'Your BMI Score Result',
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Center(
-                    child: Container(
-                      width: 172,
-                      height: 172,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: getColors(result)),
-                      child: Center(
-                          child: Text(
-                        '$result',
-                        style: const TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white),
-                      )),
-                    ),
+                ),
+                Center(
+                  child: Container(
+                    width: 172,
+                    height: 172,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: getColors(result)),
+                    child: Center(
+                        child: Text(
+                      '$result',
+                      style: const TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white),
+                    )),
                   ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 32),
-                    child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'For your height, a normal weight range would be from ${resultNormal.minimum} to ${resultNormal.maximum} kilograms.',
-                            style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w600),
-                          ),
-                          const SizedBox(
-                            height: 24,
-                          ),
-                          Text(
-                            'Your BMI is $result, indicating your weight is in the ${getBMIStatus(result)} category for adults of your height',
-                            style: const TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w300),
-                          ),
-                          const SizedBox(
-                            height: 24,
-                          ),
-                          const Text(
-                            "Maintaining a healthy weight may reduce the risk of chronic diseases associated with overweight and obesity",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w300),
-                          ),
-                        ]),
-                  ),
-                  Expanded(
-                      child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Container(
-                            height: 45,
-                            child: ElevatedButton(
-                              onPressed: (() {
-                                Navigator.pop(context);
-                              }),
-                              child: Text("Recalculate BMI"),
-                            )),
-                      )
-                    ],
-                  ))
-                ],
-              ))),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 32),
+                  child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'For your height, a normal weight range would be from ${resultNormal.minimum} to ${resultNormal.maximum} kilograms.',
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(
+                          height: 24,
+                        ),
+                        Text(
+                          'Your BMI is $result, indicating your weight is in the ${getBMIStatus(result)} category for adults of your height',
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w300),
+                        ),
+                        const SizedBox(
+                          height: 24,
+                        ),
+                        const Text(
+                          "Maintaining a healthy weight may reduce the risk of chronic diseases associated with overweight and obesity",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w300),
+                        ),
+                      ]),
+                ),
+                Expanded(
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                          height: 45,
+                          child: ElevatedButton(
+                            onPressed: (() {
+                              Navigator.pop(context);
+                            }),
+                            child: Text("Recalculate BMI"),
+                          )),
+                    )
+                  ],
+                ))
+              ],
+            )),
+      )),
     ));
   }
 }
